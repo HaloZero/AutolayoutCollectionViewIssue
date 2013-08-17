@@ -15,3 +15,8 @@ Any help would be appreciated
 
 I've already looked at this solution (which only works for scrollviews, the cell itself is generated on the fly so you can't IBOutlet it)
 http://stackoverflow.com/questions/15345522/uiscrollview-wrong-offset-with-auto-layout
+
+8/17/2013
+Due to help from a fellow developer (Joshua Ridenhour, unknown screename on github), a fix was found. Instead of putting the code to snap the cell in viewWillAppear, it should then belong into viewDidLayoutSubviews. I assume this works because autolayout has reset all its respective widths/heights/positions and thus allowing contentOffest changes to be continued.
+
+I still believe that contentOffset should be preserved though between viewWillAppear and viewDidAppear if they were set, changing layout should not cause a change theoretically though the priority of fixing this bug will be reduced on Radar.

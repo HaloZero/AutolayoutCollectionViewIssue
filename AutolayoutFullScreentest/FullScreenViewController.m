@@ -45,8 +45,13 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     [self snapToCellAtIndex:1 withAnimation:NO];
 }
+
 
 - (void) snapToCellAtIndex:(NSInteger)index withAnimation:(BOOL) animated  {
     NSIndexPath *path = [NSIndexPath indexPathForRow:index inSection:0];
